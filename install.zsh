@@ -23,5 +23,5 @@ else
   echo ""
   echo "export PATH=$PATH:/$HOME/.local/share/bin" >> $HOME/.zshrc
   echo ""
-  sudo ln -s $LOGIN_LOGIN_SRC/mk_login.py $HOME/.local/share/bin
+  ln -s $LOGIN_LOGIN_SRC/mk_login.py $HOME/.local/share/bin
 fi
