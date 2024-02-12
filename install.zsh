@@ -2,12 +2,12 @@
 export LOGINS="$HOME/logins"
 export LOGIN_SRC="$HOME/.local/share/mklogin"
 
-if ! [[ -d LOGINS ]]; then
-    mkdir -p LOGINS
+if ! [[ -d $LOGINS ]]; then
+    mkdir -p $LOGINS
 fi
 
-if ! [[ -d LOGIN_SRC ]]; then
-  mkdir -p LOGIN_SRC
+if ! [[ -d $LOGIN_SRC ]]; then
+  mkdir -p $LOGIN_SRC
 fi
 
 cp ./mk_login.py $LOGIN_SRC/mk_login.py
