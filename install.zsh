@@ -21,7 +21,7 @@ else
     mkdir -p $HOME/.local/share/bin
   fi
   echo ""
-  echo "export PATH=$PATH:/$HOME/.local/share/bin" >> $HOME/.zshrc
+  echo "export PATH=$PATH:$HOME/.local/share/bin" >> $HOME/.zshrc
   echo ""
   ln -s $LOGIN_LOGIN_SRC/mk_login.py $HOME/.local/share/bin
 fi
