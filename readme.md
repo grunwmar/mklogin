@@ -7,7 +7,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/grunwmar/mklogin/main/web_
 example
 ```shell
 ~$ mklogin --user tester --host some-server.org
-File created /home/user/tester@some-server.org.login   
+File created /home/user/logins/tester@some-server.org.login   
 ```
 
 content of `tester@some-server.org.login` file
