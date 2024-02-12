@@ -17,11 +17,8 @@ chmod  +x $LOGIN_SRC/mk_login.py
 if [[ -d /usr/bin/share ]]; then
   sudo ln -s $LOGIN_SRC/mk_login.py /usr/bin/mklogin
 else
-  if ! [[ -d $HOME/.local/share/bin ]]; then
-    mkdir -p $HOME/.local/share/bin
+  if [[ -d /data/data/com.termux/files/usr/bin ]]; then
+    mkdir -p /data/data/com.termux/files/usr/bin
+    ln -s $LOGIN_LOGIN_SRC/mk_login.py /data/data/com.termux/files/usr/bin/mklogin
   fi
-  echo ""
-  echo "export PATH=$PATH:$HOME/.local/share/bin" >> $HOME/.zshrc
-  echo ""
-  ln -s $LOGIN_LOGIN_SRC/mk_login.py $HOME/.local/share/bin
 fi
