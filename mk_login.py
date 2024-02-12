@@ -1,26 +1,24 @@
 #!/usr/bin/python3
-import  os
+import os
 import argparse
 import sys
 
 parser = argparse.ArgumentParser(description='Create ZSH login script for remote computer through secure shell')
-parser.add_argument('--user',"-u", required=True, type=str,
+parser.add_argument('--user', "-u", required=True, type=str,
                     help='username')
-parser.add_argument('--host',"-H", required=True, type=str,
+parser.add_argument('--host', "-H", required=True, type=str,
                     help='hostname')
 
 
 def main(args):
-    pswd = ""
-
     filename = f"{args.user}@{args.host}.login"
-    script="""#!/usr/bin/zsh
+    script = """#!/usr/bin/zsh
 BASE=$(basename "$0")
 PARSED=(${(s/@/)BASE})
 USER=$PARSED[1]
 HOST=$PARSED[2]; HOST=${HOST/.login/}; HOST=${HOST/.zsh/}
 
-echo -e ">>> Login to" "\e[32m$USER\e[0m"@"\e[36m$HOST\e[0m >>>"
+echo -e ">>> Login to" "\033[32m$USER\033[0m"@"\033[36m$HOST\033[0m >>>"
 
 LOGIN=$USER@$HOST
 
@@ -35,7 +33,7 @@ ssh -i $SSH_ID $LOGIN
 TIME_STAMP_2=$(date +%s)
 
 DUR=$(((TIME_STAMP_2 - TIME_STAMP_1)))
-echo -e ">>> Exited from \e[32m$USER\e[0m"@"\e[36m$HOST\e[0m, duration= $DUR sec >>>"
+echo -e ">>> Exited from \033[32m$USER\033[0m"@"\033[36m$HOST\033[0m, duration= $DUR sec >>>"
 
 """
     filepath = os.path.join(os.environ["HOME"], "logins", filename)
@@ -43,6 +41,7 @@ echo -e ">>> Exited from \e[32m$USER\e[0m"@"\e[36m$HOST\e[0m, duration= $DUR sec
         f.write(script)
     os.system(f"chmod +x {filepath}")
     print(f"File created \033[92m{filepath}\033[0m")
+
 
 if __name__ == "__main__":
     main(parser.parse_args())
