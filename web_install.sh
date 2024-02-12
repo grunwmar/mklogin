@@ -1,5 +1,6 @@
 #!/usr/bin/sh
-git clone ... .mklogin_inst
+# https://raw.githubusercontent.com/grunwmar/mklogin/main/web_install.sh
+git clone https://github.com/grunwmar/mklogin.git .mklogin_inst
 cd .mklogin_inst
 zsh install.zsh
 cd ..
