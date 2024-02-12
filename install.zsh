@@ -15,5 +15,8 @@ cp ./mk_login.py $LOGIN_SRC/mk_login.py
 chmod  +x $LOGIN_SRC/mk_login.py
 
 if [[ -d /usr/sbin ]]; then
-  sudo ln -s $LOGIN_SRC/mk_login.py /usr/sbin/mklog
+  sudo ln -s $LOGIN_SRC/mk_login.py /usr/sbin/mklogin
+  else
+  cp ../.mk_login_inst .mklogin
+  ln -s $HOME/.mklogin/mk_login.py $HOME/mklogin
 fi
