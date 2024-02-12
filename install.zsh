@@ -15,10 +15,6 @@ cp ./mk_login.py $LOGIN_SRC/mk_login.py
 chmod  +x $LOGIN_SRC/mk_login.py
 
 if [[ -d /usr/bin/share ]]; then
-  sudo ln -s $LOGIN_SRC/mk_login.py /usr/bin/mklogin
-else
-  if [[ -d /data/data/com.termux/files/usr/bin ]]; then
-    mkdir -p /data/data/com.termux/files/usr/bin
-    ln -s $LOGIN_LOGIN_SRC/mk_login.py /data/data/com.termux/files/usr/bin/mklogin
-  fi
+  sudo ln -s $LOGIN_SRC/mk_login.py /usr/bin/mklog
 fi
+  
